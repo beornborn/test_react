@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Dark/Light Mode Toggle</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      // Ensure React is available
+      class DarkLightMode extends React.Component {
+        constructor(props) {
+          super(props);
+          const isDark = window.matchMedia(
+            "(prefers-color-scheme: dark)"
+          ).matches;
+          this.state = {
+            themeMode: isDark ? "dark" : "light",
+          };
+        }
+
+        toggleThemeMode = () => {
+          this.setState((prevState) => {
+            const newMode = prevState.themeMode === "dark" ? "light" : "dark";
+            return { themeMode: newMode };
+          });
+        };
+
+        renderButtonLabel = () => {
+          const { themeMode } = this.state;
+          return themeMode === "dark"
+            ? "Enable Light Mode"
+            : "Enable Dark Mode";
+        };
+
+        buttonBackgroundColor = () => {
+          const { themeMode } = this.state;
+          return themeMode === "dark" ? "#111111" : "#eeeeee";
+        };
+
+        render() {
+          return (
+            <div
+              style={{ backgroundColor: this.buttonBackgroundColor() }}
+              onClick={this.toggleThemeMode}
+            >
+              {this.renderButtonLabel()}
+            </div>
+          );
+        }
+      }
+
+      // Render the component to the DOM
+      ReactDOM.createRoot(document.getElementById("root")).render(
+        <DarkLightMode />
+      );
+    </script>
+  </body>
+</html>
