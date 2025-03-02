@@ -41,9 +41,7 @@ export const Content = styled.div`
 export const Title = styled.h3`
   margin: 0 0 0.5rem;
   color: ${({ theme }) => theme.colors.text.primary};
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  word-break: break-word;
 `;
 
 export const Year = styled.span`
