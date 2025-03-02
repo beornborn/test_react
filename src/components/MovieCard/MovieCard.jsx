@@ -5,7 +5,7 @@ import {
   Content,
   Title,
   Year,
-  FavoriteButton,
+  LikeButton,
 } from './MovieCard.style';
 import { useFavoritesStore } from '../../store/favorites';
 
@@ -34,14 +34,14 @@ export function MovieCard({ movie }) {
       <Content>
         <Title>{movie.Title}</Title>
         <Year>{movie.Year}</Year>
-        <FavoriteButton
-          onClick={handleFavoriteClick}
-          isFavorite={favorite}
-          aria-label={favorite ? 'Remove from favorites' : 'Add to favorites'}
-        >
-          {favorite ? '★' : '☆'}
-        </FavoriteButton>
       </Content>
+      <LikeButton
+        onClick={handleFavoriteClick}
+        isFavorite={favorite}
+        aria-label={favorite ? 'Remove from favorites' : 'Add to favorites'}
+      >
+        ♥
+      </LikeButton>
     </Card>
   );
 }

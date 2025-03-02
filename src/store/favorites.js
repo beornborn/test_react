@@ -5,7 +5,7 @@ export const useFavoritesStore = create((set, get) => ({
   favorites: storageService.getFavorites(),
 
   addFavorite: movie => {
-    const favorites = [...get().favorites, movie];
+    const favorites = [movie, ...get().favorites];
     set({ favorites });
     storageService.setFavorites(favorites);
   },

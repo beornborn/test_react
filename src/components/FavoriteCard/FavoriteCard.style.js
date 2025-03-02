@@ -8,17 +8,6 @@ export const Card = styled.div`
   border-radius: 0.5rem;
   background: ${({ theme }) => theme.colors.white};
   box-shadow: 0 1px 3px ${({ theme }) => theme.colors.shadow};
-  transition: transform 0.2s ease;
-
-  &:hover {
-    transform: translateY(-2px);
-  }
-
-  @media (max-width: 480px) {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
 `;
 
 export const Poster = styled.img`
@@ -26,11 +15,6 @@ export const Poster = styled.img`
   height: 11rem;
   object-fit: cover;
   border-radius: 0.25rem;
-
-  @media (max-width: 480px) {
-    width: 10rem;
-    height: 15rem;
-  }
 `;
 
 export const Content = styled.div`
@@ -51,7 +35,7 @@ export const Year = styled.span`
   font-size: 0.875rem;
 `;
 
-export const LikeButton = styled.button`
+export const RemoveButton = styled.button`
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
@@ -59,13 +43,12 @@ export const LikeButton = styled.button`
   border: none;
   padding: 0.5rem;
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 2rem;
   line-height: 1;
-  color: ${({ theme }) => theme.colors.primary};
-  transition: opacity 0.2s ease;
-  opacity: ${({ isFavorite }) => (isFavorite ? 1 : 0.5)};
+  color: ${({ theme }) => theme.colors.text.secondary};
+  transition: color 0.2s ease;
 
   &:hover {
-    opacity: 1;
+    color: ${({ theme }) => theme.colors.primary};
   }
 `;

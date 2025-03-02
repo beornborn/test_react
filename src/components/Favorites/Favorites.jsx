@@ -1,5 +1,5 @@
 import React from 'react';
-import { MovieCard } from '../MovieCard';
+import { FavoriteCard } from '../FavoriteCard';
 import {
   FavoritesContainer,
   FavoritesTitle,
@@ -17,7 +17,7 @@ export function Favorites() {
       {favorites.length > 0 ? (
         <FavoritesList>
           {favorites.map(movie => (
-            <MovieCard key={movie.imdbID} movie={movie} />
+            <FavoriteCard key={movie.imdbID} movie={movie} />
           ))}
         </FavoritesList>
       ) : (
