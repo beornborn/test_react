@@ -1,22 +1,17 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Home } from '../pages/Home';
+import { AppContainer } from './App.style';
 
-import { NotesList } from './NotesList';
-import notes from '../test/notes.json';
-
-export const App = () => {
+export function App() {
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-12">
-          <h1>React notes</h1>
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-md-4">
-          <NotesList notes={notes} />
-        </div>
-        <div className="col-md-8"></div>
-      </div>
-    </div>
+    <BrowserRouter>
+      <AppContainer>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          {/* Add more routes here as needed */}
+        </Routes>
+      </AppContainer>
+    </BrowserRouter>
   );
-};
+}
