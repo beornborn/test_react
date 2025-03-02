@@ -24,11 +24,13 @@ export const Title = styled.h1`
 export const SearchContainer = styled.div`
   width: 100%;
   max-width: 31.25rem;
+  position: relative;
 `;
 
 export const SearchInput = styled.input`
   width: 100%;
   padding: 0.75rem 1rem;
+  padding-right: 3rem;
   border: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: 0.5rem;
   font-size: 1rem;
@@ -43,6 +45,26 @@ export const SearchInput = styled.input`
 
   &::placeholder {
     color: ${({ theme }) => theme.colors.text.secondary};
+  }
+`;
+
+export const ClearButton = styled.button`
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  font-size: 2rem;
+  line-height: 1;
+  color: ${({ theme }) => theme.colors.text.secondary};
+  transition: color 0.2s ease;
+  display: ${({ visible }) => (visible ? 'block' : 'none')};
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.primary};
   }
 `;
 

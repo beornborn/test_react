@@ -5,6 +5,7 @@ import {
   Title,
   SearchContainer,
   SearchInput,
+  ClearButton,
   MainContent,
 } from './Home.style';
 import { Movies } from '../../components/Movies';
@@ -26,6 +27,11 @@ export function Home() {
     setSearchTerm(event.target.value);
   };
 
+  const handleClearSearch = () => {
+    setSearchTerm('');
+    setDebouncedSearch('');
+  };
+
   return (
     <PageContainer>
       <Header>
@@ -37,6 +43,13 @@ export function Home() {
             value={searchTerm}
             onChange={handleSearchChange}
           />
+          <ClearButton
+            onClick={handleClearSearch}
+            visible={searchTerm.length > 0}
+            aria-label="Clear search"
+          >
+            ×
+          </ClearButton>
         </SearchContainer>
       </Header>
       <MainContent>
