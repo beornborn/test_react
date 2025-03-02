@@ -1,10 +1,15 @@
+import { useInfiniteQuery } from '@tanstack/react-query';
 import { useQuery } from '@tanstack/react-query';
 import { omdbApi } from '../api';
 
-export const useMovieSearch = (searchTerm, page = 1) => {
-  return useQuery({
-    queryKey: ['omdb', 'movies', searchTerm, page],
-    queryFn: () => omdbApi.searchMovies(searchTerm, page),
+export const useMovieSearch = searchTerm => {
+  return useInfiniteQuery({
+    queryKey: ['omdb', 'movies', searchTerm],
+    queryFn: ({ pageParam = 1 }) => omdbApi.searchMovies(searchTerm, pageParam),
+    getNextPageParam: (lastPage, allPages) => {
+      if (!lastPage || !lastPage.movies.length) return undefined;
+      return allPages.length + 1;
+    },
     enabled: !!searchTerm,
     staleTime: 5 * 60 * 1000, // Consider data fresh for 5 minutes
   });

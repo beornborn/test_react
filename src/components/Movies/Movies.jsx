@@ -1,10 +1,30 @@
 import React from 'react';
+import { useInView } from 'react-intersection-observer';
 import { MovieCard } from '../MovieCard';
-import { MoviesContainer, MoviesGrid, Message } from './Movies.style';
+import {
+  MoviesContainer,
+  MoviesGrid,
+  Message,
+  LoadingMore,
+} from './Movies.style';
 import { useMovieSearch } from '../../hooks/useMovies';
 
 export function Movies({ searchTerm }) {
-  const { data, isLoading, error } = useMovieSearch(searchTerm);
+  const { ref, inView } = useInView();
+  const {
+    data,
+    isLoading,
+    error,
+    hasNextPage,
+    isFetchingNextPage,
+    fetchNextPage,
+  } = useMovieSearch(searchTerm);
+
+  React.useEffect(() => {
+    if (inView && hasNextPage) {
+      fetchNextPage();
+    }
+  }, [inView, hasNextPage, fetchNextPage]);
 
   if (isLoading) {
     return <Message>Loading...</Message>;
@@ -18,17 +38,24 @@ export function Movies({ searchTerm }) {
     return <Message>Start typing to search for movies</Message>;
   }
 
-  if (!data?.movies?.length) {
+  if (!data?.pages[0]?.movies?.length) {
     return <Message>No movies found</Message>;
   }
 
   return (
     <MoviesContainer>
       <MoviesGrid>
-        {data.movies.map(movie => (
-          <MovieCard key={movie.imdbID} movie={movie} />
-        ))}
+        {data.pages.map(page =>
+          page.movies.map(movie => (
+            <MovieCard key={movie.imdbID} movie={movie} />
+          ))
+        )}
       </MoviesGrid>
+      {hasNextPage && (
+        <LoadingMore ref={ref}>
+          {isFetchingNextPage ? 'Loading more...' : 'Load more'}
+        </LoadingMore>
+      )}
     </MoviesContainer>
   );
 }

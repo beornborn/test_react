@@ -24,3 +24,9 @@ export const Message = styled.p`
   text-align: center;
   padding: 2rem;
 `;
+
+export const LoadingMore = styled.div`
+  text-align: center;
+  padding: 2rem;
+  color: ${({ theme }) => theme.colors.text.secondary};
+`;
