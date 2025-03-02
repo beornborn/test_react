@@ -57,17 +57,27 @@ export const MoviesSection = styled.section`
   flex-direction: column;
 `;
 
+export const MoviesGrid = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
+
 export const FavoritesSection = styled.aside`
   background: #f8f9fa;
   padding: 1.5rem;
   border-radius: 0.5rem;
   width: 18.75rem;
   height: fit-content;
-  display: flex;
-  flex-direction: column;
 
   @media (max-width: 768px) {
     width: 100%;
     order: -1; // Makes favorites appear first on mobile
   }
+`;
+
+export const Message = styled.p`
+  color: #718096;
+  text-align: center;
+  padding: 2rem;
 `;

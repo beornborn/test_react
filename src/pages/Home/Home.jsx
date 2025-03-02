@@ -1,19 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   PageContainer,
   Header,
   Title,
   SearchContainer,
   SearchInput,
-  MainContent,
-  MoviesSection,
-  FavoritesSection,
 } from './Home.style';
+import { Movies } from '../../components/Movies';
+import { useMovieSearch } from '../../hooks/useMovies';
 
 export function Home() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [debouncedSearch, setDebouncedSearch] = useState('');
+  const { data, isLoading, error } = useMovieSearch(debouncedSearch);
 
-  const handleSearch = event => {
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setDebouncedSearch(searchTerm);
+    }, 500);
+
+    return () => clearTimeout(timeoutId);
+  }, [searchTerm]);
+
+  const handleSearchChange = event => {
     setSearchTerm(event.target.value);
   };
 
@@ -26,21 +35,16 @@ export function Home() {
             type="text"
             placeholder="Search for movies..."
             value={searchTerm}
-            onChange={handleSearch}
+            onChange={handleSearchChange}
           />
         </SearchContainer>
       </Header>
-
-      <MainContent>
-        <MoviesSection>
-          <p>Movie results will appear here</p>
-        </MoviesSection>
-
-        <FavoritesSection>
-          <h2>Favorites</h2>
-          <p>Your favorite movies will appear here</p>
-        </FavoritesSection>
-      </MainContent>
+      <Movies
+        isLoading={isLoading}
+        error={error}
+        searchTerm={searchTerm}
+        data={data}
+      />
     </PageContainer>
   );
 }
