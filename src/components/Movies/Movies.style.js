@@ -8,8 +8,15 @@ export const MoviesContainer = styled.section`
 
 export const MoviesGrid = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 1rem;
+  padding: 1rem;
+
+  > * {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+  }
 `;
 
 export const Message = styled.p`

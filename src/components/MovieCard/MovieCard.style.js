@@ -12,6 +12,12 @@ export const Card = styled.div`
   &:hover {
     transform: translateY(-2px);
   }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 `;
 
 export const Poster = styled.img`
@@ -19,6 +25,11 @@ export const Poster = styled.img`
   height: 11rem;
   object-fit: cover;
   border-radius: 0.25rem;
+
+  @media (max-width: 480px) {
+    width: 10rem;
+    height: 15rem;
+  }
 `;
 
 export const Content = styled.div`
@@ -30,6 +41,9 @@ export const Content = styled.div`
 export const Title = styled.h3`
   margin: 0 0 0.5rem;
   color: ${({ theme }) => theme.colors.text.primary};
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const Year = styled.span`
