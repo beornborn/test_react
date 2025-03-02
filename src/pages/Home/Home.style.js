@@ -16,7 +16,7 @@ export const Header = styled.header`
 `;
 
 export const Title = styled.h1`
-  color: #2c3e50;
+  color: ${({ theme }) => theme.colors.text.primary};
   font-size: 2.5rem;
   margin-bottom: 1rem;
 `;
@@ -24,20 +24,28 @@ export const Title = styled.h1`
 export const SearchContainer = styled.div`
   display: flex;
   margin-bottom: 2rem;
+  width: 100%;
+  max-width: 31.25rem;
 `;
 
 export const SearchInput = styled.input`
   flex: 1;
-  max-width: 31.25rem;
-  padding: 0.75rem 1.25rem;
-  font-size: 1rem;
-  border: 2px solid #ddd;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: 0.5rem;
-  transition: border-color 0.3s ease;
+  font-size: 1rem;
+  color: ${({ theme }) => theme.colors.text.primary};
+  background-color: ${({ theme }) => theme.colors.white};
+  transition: border-color 0.2s ease;
 
   &:focus {
-    border-color: #3498db;
     outline: none;
+    border-color: ${({ theme }) => theme.colors.primary};
+  }
+
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.text.secondary};
   }
 `;
 

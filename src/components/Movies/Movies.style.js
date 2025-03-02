@@ -13,7 +13,7 @@ export const MoviesGrid = styled.div`
 `;
 
 export const Message = styled.p`
-  color: #718096;
+  color: ${({ theme }) => theme.colors.text.secondary};
   text-align: center;
   padding: 2rem;
 `;

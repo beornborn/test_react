@@ -5,8 +5,13 @@ export const Card = styled.div`
   gap: 1rem;
   padding: 1rem;
   border-radius: 0.5rem;
-  background: white;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background: ${({ theme }) => theme.colors.white};
+  box-shadow: 0 1px 3px ${({ theme }) => theme.colors.shadow};
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
 `;
 
 export const Poster = styled.img`
@@ -24,10 +29,10 @@ export const Content = styled.div`
 
 export const Title = styled.h3`
   margin: 0 0 0.5rem;
-  color: #2d3748;
+  color: ${({ theme }) => theme.colors.text.primary};
 `;
 
 export const Year = styled.span`
-  color: #718096;
+  color: ${({ theme }) => theme.colors.text.secondary};
   font-size: 0.875rem;
 `;
