@@ -1,8 +1,11 @@
 import React from 'react';
 import { MovieCard } from '../MovieCard';
 import { MoviesContainer, MoviesGrid, Message } from './Movies.style';
+import { useMovieSearch } from '../../hooks/useMovies';
 
-export function Movies({ isLoading, error, searchTerm, data }) {
+export function Movies({ searchTerm }) {
+  const { data, isLoading, error } = useMovieSearch(searchTerm);
+
   if (isLoading) {
     return <Message>Loading...</Message>;
   }

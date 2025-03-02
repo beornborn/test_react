@@ -7,12 +7,10 @@ import {
   SearchInput,
 } from './Home.style';
 import { Movies } from '../../components/Movies';
-import { useMovieSearch } from '../../hooks/useMovies';
 
 export function Home() {
   const [searchTerm, setSearchTerm] = useState('');
   const [debouncedSearch, setDebouncedSearch] = useState('');
-  const { data, isLoading, error } = useMovieSearch(debouncedSearch);
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -39,12 +37,7 @@ export function Home() {
           />
         </SearchContainer>
       </Header>
-      <Movies
-        isLoading={isLoading}
-        error={error}
-        searchTerm={searchTerm}
-        data={data}
-      />
+      <Movies searchTerm={debouncedSearch} />
     </PageContainer>
   );
 }
