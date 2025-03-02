@@ -5,8 +5,10 @@ import {
   Title,
   SearchContainer,
   SearchInput,
+  MainContent,
 } from './Home.style';
 import { Movies } from '../../components/Movies';
+import { Favorites } from '../../components/Favorites';
 
 export function Home() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -37,7 +39,10 @@ export function Home() {
           />
         </SearchContainer>
       </Header>
-      <Movies searchTerm={debouncedSearch} />
+      <MainContent>
+        <Movies searchTerm={debouncedSearch} />
+        <Favorites />
+      </MainContent>
     </PageContainer>
   );
 }

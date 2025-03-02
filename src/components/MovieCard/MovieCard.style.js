@@ -48,3 +48,17 @@ export const Year = styled.span`
   color: ${({ theme }) => theme.colors.text.secondary};
   font-size: 0.875rem;
 `;
+
+export const FavoriteButton = styled.button`
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: ${({ isFavorite, theme }) =>
+    isFavorite ? theme.colors.primary : theme.colors.text.secondary};
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.primary};
+  }
+`;

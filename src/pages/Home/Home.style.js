@@ -22,14 +22,11 @@ export const Title = styled.h1`
 `;
 
 export const SearchContainer = styled.div`
-  display: flex;
-  margin-bottom: 2rem;
   width: 100%;
   max-width: 31.25rem;
 `;
 
 export const SearchInput = styled.input`
-  flex: 1;
   width: 100%;
   padding: 0.75rem 1rem;
   border: 1px solid ${({ theme }) => theme.colors.border};
@@ -52,10 +49,9 @@ export const SearchInput = styled.input`
 export const MainContent = styled.main`
   display: flex;
   gap: 2rem;
-  flex: 1;
 
   @media (max-width: 768px) {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 `;
 
