@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export const PageContainer = styled.div`
-  max-width: 1200px;
+  max-width: 75rem;
   margin: 0 auto;
-  padding: 20px;
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -28,11 +28,11 @@ export const SearchContainer = styled.div`
 
 export const SearchInput = styled.input`
   flex: 1;
-  max-width: 500px;
-  padding: 12px 20px;
+  max-width: 31.25rem;
+  padding: 0.75rem 1.25rem;
   font-size: 1rem;
   border: 2px solid #ddd;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   transition: border-color 0.3s ease;
 
   &:focus {
@@ -60,8 +60,8 @@ export const MoviesSection = styled.section`
 export const FavoritesSection = styled.aside`
   background: #f8f9fa;
   padding: 1.5rem;
-  border-radius: 8px;
-  width: 300px;
+  border-radius: 0.5rem;
+  width: 18.75rem;
   height: fit-content;
   display: flex;
   flex-direction: column;
