@@ -5,16 +5,16 @@ export const Card = styled.div`
   display: flex;
   gap: 1rem;
   padding: 1rem;
-  border-radius: 0.5rem;
   background: ${({ theme }) => theme.colors.white};
+  border-radius: 0.5rem;
   box-shadow: 0 1px 3px ${({ theme }) => theme.colors.shadow};
 `;
 
 export const Poster = styled.img`
   width: 7.5rem;
   height: 11rem;
-  object-fit: cover;
   border-radius: 0.25rem;
+  object-fit: cover;
 `;
 
 export const Content = styled.div`
@@ -37,15 +37,16 @@ export const Year = styled.span`
 
 export const RemoveButton = styled.button`
   position: absolute;
+  display: block;
   top: 0.5rem;
   right: 0.5rem;
+  padding: 0.5rem;
   background: none;
   border: none;
-  padding: 0.5rem;
-  cursor: pointer;
+  color: ${({ theme }) => theme.colors.text.secondary};
   font-size: 2rem;
   line-height: 1;
-  color: ${({ theme }) => theme.colors.text.secondary};
+  cursor: pointer;
   transition: color 0.2s ease;
 
   &:hover {

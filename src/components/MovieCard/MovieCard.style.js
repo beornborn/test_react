@@ -5,15 +5,15 @@ export const Card = styled.article`
   display: flex;
   gap: 1rem;
   padding: 1rem;
-  border-radius: 0.5rem;
   background: ${({ theme }) => theme.colors.white};
+  border-radius: 0.5rem;
+  border: ${({ theme, isFavorite }) =>
+    isFavorite ? `2px solid ${theme.colors.primary}` : '1px solid transparent'};
   box-shadow: ${({ theme, isFavorite }) =>
     isFavorite
       ? `0 4px 12px ${theme.colors.primary}20, 0 2px 4px rgba(0, 0, 0, 0.1)`
       : `0 1px 3px ${theme.colors.shadow}`};
   transition: all 0.2s ease;
-  border: ${({ theme, isFavorite }) =>
-    isFavorite ? `2px solid ${theme.colors.primary}` : '1px solid transparent'};
 
   &:hover {
     transform: translateY(-2px);
@@ -24,6 +24,7 @@ export const Card = styled.article`
   }
 
   @media (max-width: 480px) {
+    display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -33,8 +34,8 @@ export const Card = styled.article`
 export const Poster = styled.img`
   width: 7.5rem;
   height: 11rem;
-  object-fit: cover;
   border-radius: 0.25rem;
+  object-fit: cover;
 
   @media (max-width: 480px) {
     width: 10rem;
@@ -62,17 +63,18 @@ export const Year = styled.time`
 
 export const LikeButton = styled.button`
   position: absolute;
+  display: block;
   top: 0.5rem;
   right: 0.5rem;
+  padding: 0.5rem;
   background: none;
   border: none;
-  padding: 0.5rem;
-  cursor: pointer;
+  color: ${({ theme }) => theme.colors.primary};
   font-size: 1.5rem;
   line-height: 1;
-  color: ${({ theme }) => theme.colors.primary};
-  transition: opacity 0.2s ease;
   opacity: ${({ isFavorite }) => (isFavorite ? 1 : 0.5)};
+  cursor: pointer;
+  transition: opacity 0.2s ease;
 
   &:hover {
     opacity: 1;

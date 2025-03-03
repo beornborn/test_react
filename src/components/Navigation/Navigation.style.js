@@ -6,21 +6,21 @@ export const NavContainer = styled.nav`
 
 export const NavList = styled.ul`
   display: flex;
+  justify-content: center;
   gap: 1rem;
   margin: 0;
   padding: 0;
-  list-style: none;
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
-  justify-content: center;
+  list-style: none;
 `;
 
 export const NavItem = styled.li`
   a {
+    position: relative;
     display: inline-block;
     padding: 0.75rem 1rem;
     color: ${({ theme }) => theme.colors.text.secondary};
     text-decoration: none;
-    position: relative;
 
     &:hover,
     &.active {
@@ -28,8 +28,8 @@ export const NavItem = styled.li`
     }
 
     &.active::after {
-      content: '';
       position: absolute;
+      content: '';
       bottom: -1px;
       left: 0;
       right: 0;

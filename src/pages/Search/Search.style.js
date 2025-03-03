@@ -1,17 +1,17 @@
 import styled from 'styled-components';
 
 export const PageContainer = styled.div`
-  margin: 0 auto;
-  padding: 0 1rem;
   width: 100%;
   max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 `;
 
 export const Header = styled.header`
-  margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 2rem;
 `;
 
 export const Title = styled.h1`
@@ -22,8 +22,8 @@ export const Title = styled.h1`
 
 export const SearchContainer = styled.div`
   position: relative;
-  max-width: 600px;
   width: 100%;
+  max-width: 600px;
 `;
 
 export const SearchInput = styled.input`
@@ -31,9 +31,9 @@ export const SearchInput = styled.input`
   padding: 0.75rem 2.5rem 0.75rem 1rem;
   border: 2px solid ${({ theme }) => theme.colors.border};
   border-radius: 0.5rem;
-  font-size: 1rem;
-  color: ${({ theme }) => theme.colors.text.primary};
   background: ${({ theme }) => theme.colors.background};
+  color: ${({ theme }) => theme.colors.text.primary};
+  font-size: 1rem;
   transition: border-color 0.2s;
 
   &:focus {
@@ -43,17 +43,17 @@ export const SearchInput = styled.input`
 `;
 
 export const ClearButton = styled.button`
+  display: block;
   position: absolute;
-  right: 0.5rem;
   top: 50%;
+  right: 0.5rem;
+  padding: 0.25rem;
   transform: translateY(-50%);
   background: none;
   border: none;
-  font-size: 1.5rem;
   color: ${({ theme }) => theme.colors.text.secondary};
+  font-size: 1.5rem;
   cursor: pointer;
-  padding: 0.25rem;
-  display: block;
 
   &:hover {
     color: ${({ theme }) => theme.colors.text.primary};
