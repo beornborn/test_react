@@ -6,8 +6,8 @@ import {
   Title,
   Year,
   LikeButton,
-} from './MovieCard.style';
-import { useFavoritesStore } from '../../store/favorites';
+} from '@/components/MovieCard/MovieCard.style';
+import { useFavoritesStore } from '@/store/favorites';
 
 export function MovieCard({ movie }) {
   const { isFavorite, addFavorite, removeFavorite } = useFavoritesStore();

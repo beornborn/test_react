@@ -1,6 +1,6 @@
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
-import { MovieCard } from '../MovieCard/MovieCard';
+import { MovieCard } from '@/components/MovieCard/MovieCard';
 import {
   MoviesContainer,
   MoviesList,
@@ -8,8 +8,8 @@ import {
   Message,
   LoadingMore,
 } from './Movies.style';
-import { useMovieSearch } from '../../hooks/useMovies';
-import { useSearchStore } from '../../store/search';
+import { useMovieSearch } from '@/hooks/useMovies';
+import { useSearchStore } from '@/store/search';
 
 export function Movies() {
   const { ref, inView } = useInView();

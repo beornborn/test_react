@@ -1,7 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useFavoritesStore } from '../../store/favorites';
-import { NavContainer, NavList, NavItem } from './Navigation.style';
+import { useFavoritesStore } from '@/store/favorites';
+import {
+  NavContainer,
+  NavList,
+  NavItem,
+} from '@/components/Navigation/Navigation.style';
 
 export function Navigation() {
   const favorites = useFavoritesStore(state => state.favorites);

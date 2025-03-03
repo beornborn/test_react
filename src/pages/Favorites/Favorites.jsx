@@ -5,9 +5,9 @@ import {
   MainContent,
   FavoritesGrid,
   EmptyMessage,
-} from './Favorites.style';
-import { FavoriteCard } from '../../components/FavoriteCard/FavoriteCard';
-import { useFavoritesStore } from '../../store/favorites';
+} from '@/pages/Favorites/Favorites.style';
+import { FavoriteCard } from '@/components/FavoriteCard/FavoriteCard';
+import { useFavoritesStore } from '@/store/favorites';
 
 export function Favorites() {
   const favorites = useFavoritesStore(state => state.favorites);

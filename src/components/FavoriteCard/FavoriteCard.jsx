@@ -6,8 +6,8 @@ import {
   Title,
   Year,
   RemoveButton,
-} from './FavoriteCard.style';
-import { useFavoritesStore } from '../../store/favorites';
+} from '@/components/FavoriteCard/FavoriteCard.style';
+import { useFavoritesStore } from '@/store/favorites';
 
 export function FavoriteCard({ movie }) {
   const { removeFavorite } = useFavoritesStore();

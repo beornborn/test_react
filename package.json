@@ -14,23 +14,15 @@
     "zustand": "^5.0.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --testResultsProcessor='jest-junit' --verbose",
-    "test:watch": "react-scripts test --verbose",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test --testResultsProcessor='jest-junit' --verbose",
+    "test:watch": "craco test --verbose",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "format:check": "prettier --check \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
-    "predeploy": "npm run build",
+    "predeploy": "yarn build",
     "deploy": "gh-pages -d build",
     "lint": "eslint src --ext .js,.jsx"
-  },
-  "jest-junit": {
-    "outputName": "./test-results.xml",
-    "suiteName": "jest tests",
-    "suiteNameTemplate": "{filepath}",
-    "classNameTemplate": "{classname}",
-    "titleTemplate": "{title}",
-    "ancestorSeparator": " › "
   },
   "eslintConfig": {
     "extends": [
@@ -51,6 +43,7 @@
     ]
   },
   "devDependencies": {
+    "@craco/craco": "^7.1.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.4.3",

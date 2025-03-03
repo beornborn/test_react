@@ -1,12 +1,12 @@
 import React from 'react';
-import { FavoriteCard } from '../FavoriteCard/FavoriteCard';
+import { FavoriteCard } from '@/components/FavoriteCard/FavoriteCard';
 import {
   FavoritesContainer,
   FavoritesTitle,
   FavoritesList,
   EmptyMessage,
 } from './Favorites.style';
-import { useFavoritesStore } from '../../store/favorites';
+import { useFavoritesStore } from '@/store/favorites';
 
 export function Favorites() {
   const favorites = useFavoritesStore(state => state.favorites);

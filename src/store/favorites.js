@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { storageService } from '../services/storage';
+import { storageService } from '@/services/storage';
 
 export const useFavoritesStore = create((set, get) => ({
   favorites: storageService.getFavorites(),

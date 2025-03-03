@@ -8,8 +8,8 @@ import {
   ClearButton,
   MainContent,
 } from './Search.style';
-import { Movies } from '../../components/Movies/Movies';
-import { useSearchStore } from '../../store/search';
+import { Movies } from '@/components/Movies/Movies';
+import { useSearchStore } from '@/store/search';
 
 export function Search() {
   const { searchTerm, setSearchTerm, setDebouncedSearch, clearSearch } =
