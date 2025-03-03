@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Card = styled.div`
+export const Card = styled.article`
   position: relative;
   display: flex;
   gap: 1rem;
@@ -55,7 +55,7 @@ export const Title = styled.h3`
   text-overflow: ellipsis;
 `;
 
-export const Year = styled.span`
+export const Year = styled.time`
   color: ${({ theme }) => theme.colors.text.secondary};
   font-size: 0.875rem;
 `;

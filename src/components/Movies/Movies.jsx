@@ -3,7 +3,8 @@ import { useInView } from 'react-intersection-observer';
 import { MovieCard } from '../MovieCard/MovieCard';
 import {
   MoviesContainer,
-  MoviesGrid,
+  MoviesList,
+  MovieListItem,
   Message,
   LoadingMore,
 } from './Movies.style';
@@ -53,20 +54,26 @@ export function Movies() {
     );
   }
 
+  const totalMovies = data.pages.reduce(
+    (count, page) => count + page.movies.length,
+    0
+  );
+
   return (
-    <MoviesContainer>
-      <MoviesGrid role="grid" aria-label="Movie search results">
+    <MoviesContainer role="region" aria-label="Search Results">
+      <MoviesList role="list" aria-label={`Found ${totalMovies} movies`}>
         {data.pages.map(page =>
           page.movies.map(movie => (
-            <MovieCard key={movie.imdbID} movie={movie} role="gridcell" />
+            <MovieListItem key={movie.imdbID} role="listitem">
+              <MovieCard movie={movie} />
+            </MovieListItem>
           ))
         )}
-      </MoviesGrid>
+      </MoviesList>
       {hasNextPage && (
         <LoadingMore
           ref={ref}
-          role="button"
-          tabIndex={0}
+          onClick={() => fetchNextPage()}
           aria-label={
             isFetchingNextPage ? 'Loading more movies' : 'Load more movies'
           }
