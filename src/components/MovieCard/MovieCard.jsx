@@ -22,7 +22,7 @@ export function MovieCard({ movie }) {
   };
 
   return (
-    <Card>
+    <Card isFavorite={favorite}>
       <Poster
         src={
           movie.Poster !== 'N/A'

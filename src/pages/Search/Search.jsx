@@ -12,10 +12,8 @@ import { Movies } from '../../components/Movies/Movies';
 import { useSearchStore } from '../../store/search';
 
 export function Search() {
-  const searchTerm = useSearchStore(state => state.searchTerm);
-  const setSearchTerm = useSearchStore(state => state.setSearchTerm);
-  const setDebouncedSearch = useSearchStore(state => state.setDebouncedSearch);
-  const clearSearch = useSearchStore(state => state.clearSearch);
+  const { searchTerm, setSearchTerm, setDebouncedSearch, clearSearch } =
+    useSearchStore();
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {

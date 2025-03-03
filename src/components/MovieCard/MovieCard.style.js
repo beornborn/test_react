@@ -7,11 +7,20 @@ export const Card = styled.div`
   padding: 1rem;
   border-radius: 0.5rem;
   background: ${({ theme }) => theme.colors.white};
-  box-shadow: 0 1px 3px ${({ theme }) => theme.colors.shadow};
-  transition: transform 0.2s ease;
+  box-shadow: ${({ theme, isFavorite }) =>
+    isFavorite
+      ? `0 4px 12px ${theme.colors.primary}20, 0 2px 4px rgba(0, 0, 0, 0.1)`
+      : `0 1px 3px ${theme.colors.shadow}`};
+  transition: all 0.2s ease;
+  border: ${({ theme, isFavorite }) =>
+    isFavorite ? `2px solid ${theme.colors.primary}` : '1px solid transparent'};
 
   &:hover {
     transform: translateY(-2px);
+    box-shadow: ${({ theme, isFavorite }) =>
+      isFavorite
+        ? `0 8px 16px ${theme.colors.primary}30, 0 4px 8px rgba(0, 0, 0, 0.1)`
+        : '0 4px 8px rgba(0, 0, 0, 0.1)'};
   }
 
   @media (max-width: 480px) {
