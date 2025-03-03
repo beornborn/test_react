@@ -45,7 +45,7 @@ export function Home() {
           />
           <ClearButton
             onClick={handleClearSearch}
-            visible={searchTerm.length > 0}
+            visible={(searchTerm.length > 0).toString()}
             aria-label="Clear search"
           >
             ×
