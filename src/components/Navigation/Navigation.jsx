@@ -7,15 +7,26 @@ export function Navigation() {
   const favorites = useFavoritesStore(state => state.favorites);
 
   return (
-    <NavContainer>
-      <NavList>
-        <NavItem>
-          <NavLink to="/" end>
+    <NavContainer role="navigation" aria-label="Main Navigation">
+      <NavList role="menubar">
+        <NavItem role="none">
+          <NavLink
+            to="/"
+            end
+            role="menuitem"
+            aria-current={({ isActive }) => (isActive ? 'page' : undefined)}
+          >
             Explore
           </NavLink>
         </NavItem>
-        <NavItem>
-          <NavLink to="/favorites">My Favs ({favorites.length})</NavLink>
+        <NavItem role="none">
+          <NavLink
+            to="/favorites"
+            role="menuitem"
+            aria-current={({ isActive }) => (isActive ? 'page' : undefined)}
+          >
+            My Favs ({favorites.length})<span className="sr-only"> movies</span>
+          </NavLink>
         </NavItem>
       </NavList>
     </NavContainer>

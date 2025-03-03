@@ -33,17 +33,22 @@ export function Search() {
   };
 
   return (
-    <PageContainer>
+    <PageContainer role="region" aria-label="Movie Search Page">
       <Header>
-        <Title>Movie Search</Title>
-        <SearchContainer>
+        <Title id="search-title">Movie Search</Title>
+        <SearchContainer role="search" aria-labelledby="search-title">
           <SearchInput
             ref={searchInputRef}
             type="text"
             placeholder="Search for movies..."
             value={searchTerm}
             onChange={handleSearchChange}
+            aria-label="Search movies"
+            aria-describedby="search-description"
           />
+          <span id="search-description" className="sr-only">
+            Type to search for movies. Results will update as you type.
+          </span>
           <ClearButton
             onClick={clearSearch}
             show={searchTerm.length > 0}
@@ -53,7 +58,7 @@ export function Search() {
           </ClearButton>
         </SearchContainer>
       </Header>
-      <MainContent>
+      <MainContent role="region" aria-label="Search Results">
         <Movies />
       </MainContent>
     </PageContainer>

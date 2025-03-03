@@ -21,26 +21,39 @@ export function MovieCard({ movie }) {
     }
   };
 
+  const titleId = `movie-title-${movie.imdbID}`;
+  const yearId = `movie-year-${movie.imdbID}`;
+
   return (
-    <Card isFavorite={favorite}>
+    <Card
+      role="listitem"
+      aria-labelledby={`${titleId} ${yearId}`}
+      isFavorite={favorite}
+    >
       <Poster
         src={
           movie.Poster !== 'N/A'
             ? movie.Poster
-            : 'https://via.placeholder.com/120x180?text=No+Poster'
+            : 'https://placehold.co/120x180?text=No Poster'
         }
         alt={`${movie.Title} poster`}
+        loading="lazy"
       />
       <Content>
-        <Title>{movie.Title}</Title>
-        <Year>{movie.Year}</Year>
+        <Title id={titleId}>{movie.Title}</Title>
+        <Year id={yearId}>{movie.Year}</Year>
       </Content>
       <LikeButton
         onClick={handleFavoriteClick}
         isFavorite={favorite}
-        aria-label={favorite ? 'Remove from favorites' : 'Add to favorites'}
+        aria-label={
+          favorite
+            ? `Remove ${movie.Title} from favorites`
+            : `Add ${movie.Title} to favorites`
+        }
+        aria-pressed={favorite}
       >
-        ♥
+        <span aria-hidden="true">♥</span>
       </LikeButton>
     </Card>
   );

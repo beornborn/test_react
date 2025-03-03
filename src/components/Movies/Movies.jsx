@@ -30,32 +30,47 @@ export function Movies() {
   }, [inView, hasNextPage, fetchNextPage]);
 
   if (isLoading) {
-    return <Message>Loading...</Message>;
+    return (
+      <Message role="status" aria-live="polite">
+        Loading...
+      </Message>
+    );
   }
 
   if (error) {
-    return <Message>Error: {error.message}</Message>;
+    return <Message role="alert">Error: {error.message}</Message>;
   }
 
   if (!debouncedSearch) {
-    return <Message>Start typing to search for movies</Message>;
+    return <Message role="status">Start typing to search for movies</Message>;
   }
 
   if (!data?.pages[0]?.movies?.length) {
-    return <Message>No movies found</Message>;
+    return (
+      <Message role="status" aria-live="polite">
+        No movies found
+      </Message>
+    );
   }
 
   return (
     <MoviesContainer>
-      <MoviesGrid>
+      <MoviesGrid role="grid" aria-label="Movie search results">
         {data.pages.map(page =>
           page.movies.map(movie => (
-            <MovieCard key={movie.imdbID} movie={movie} />
+            <MovieCard key={movie.imdbID} movie={movie} role="gridcell" />
           ))
         )}
       </MoviesGrid>
       {hasNextPage && (
-        <LoadingMore ref={ref}>
+        <LoadingMore
+          ref={ref}
+          role="button"
+          tabIndex={0}
+          aria-label={
+            isFetchingNextPage ? 'Loading more movies' : 'Load more movies'
+          }
+        >
           {isFetchingNextPage ? 'Loading more...' : 'Load more'}
         </LoadingMore>
       )}

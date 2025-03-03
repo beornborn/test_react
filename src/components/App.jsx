@@ -17,12 +17,17 @@ export function App() {
       <ThemeProvider theme={theme}>
         <BrowserRouter basename="/test_react">
           <GlobalStyle />
-          <AppContainer>
-            <Navigation />
-            <Routes>
-              <Route path="/" element={<Search />} />
-              <Route path="/favorites" element={<Favorites />} />
-            </Routes>
+          <AppContainer
+            role="application"
+            aria-label="Movie Favorites Application"
+          >
+            <Navigation aria-label="Main Navigation" />
+            <main role="main" aria-label="Main Content">
+              <Routes>
+                <Route path="/" element={<Search />} />
+                <Route path="/favorites" element={<Favorites />} />
+              </Routes>
+            </main>
           </AppContainer>
         </BrowserRouter>
       </ThemeProvider>

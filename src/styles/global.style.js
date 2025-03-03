@@ -25,6 +25,19 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1rem;
   }
 
+  /* Screen reader only class */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
   @media screen and (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
