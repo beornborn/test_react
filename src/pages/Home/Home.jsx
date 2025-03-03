@@ -11,7 +11,7 @@ import {
 import { Movies } from '../../components/Movies';
 import { Favorites } from '../../components/Favorites';
 
-export function Home() {
+export function Home({ showOnlyFavorites }) {
   const [searchTerm, setSearchTerm] = useState('');
   const [debouncedSearch, setDebouncedSearch] = useState('');
 
@@ -34,27 +34,32 @@ export function Home() {
 
   return (
     <PageContainer>
-      <Header>
-        <Title>Movie Search</Title>
-        <SearchContainer>
-          <SearchInput
-            type="text"
-            placeholder="Search for movies..."
-            value={searchTerm}
-            onChange={handleSearchChange}
-          />
-          <ClearButton
-            onClick={handleClearSearch}
-            show={searchTerm.length > 0}
-            aria-label="Clear search"
-          >
-            ×
-          </ClearButton>
-        </SearchContainer>
-      </Header>
+      {!showOnlyFavorites && (
+        <Header>
+          <Title>Movie Search</Title>
+          <SearchContainer>
+            <SearchInput
+              type="text"
+              placeholder="Search for movies..."
+              value={searchTerm}
+              onChange={handleSearchChange}
+            />
+            <ClearButton
+              onClick={handleClearSearch}
+              show={searchTerm.length > 0}
+              aria-label="Clear search"
+            >
+              ×
+            </ClearButton>
+          </SearchContainer>
+        </Header>
+      )}
       <MainContent>
-        <Movies searchTerm={debouncedSearch} />
-        <Favorites />
+        {showOnlyFavorites ? (
+          <Favorites />
+        ) : (
+          <Movies searchTerm={debouncedSearch} />
+        )}
       </MainContent>
     </PageContainer>
   );
