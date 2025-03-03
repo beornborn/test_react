@@ -37,7 +37,7 @@
       "purpose": "any"
     }
   ],
-  "start_url": "/test_react/",
+  "start_url": ".",
   "scope": "/test_react/",
   "display": "standalone",
   "orientation": "any",
