@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 export const PageContainer = styled.div`
-  max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
+  width: 100%;
+  max-width: 1200px;
 `;
 
 export const Header = styled.header`

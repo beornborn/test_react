@@ -8,7 +8,6 @@ export const FooterContainer = styled.footer`
 `;
 
 export const FooterContent = styled.div`
-  max-width: 1200px;
   margin: 0 auto;
   text-align: center;
   color: ${({ theme }) => theme.colors.text.secondary};
