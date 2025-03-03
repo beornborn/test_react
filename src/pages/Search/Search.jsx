@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import {
   PageContainer,
   Header,
@@ -9,10 +9,13 @@ import {
   MainContent,
 } from './Search.style';
 import { Movies } from '../../components/Movies/Movies';
+import { useSearchStore } from '../../store/search';
 
 export function Search() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [debouncedSearch, setDebouncedSearch] = useState('');
+  const searchTerm = useSearchStore(state => state.searchTerm);
+  const setSearchTerm = useSearchStore(state => state.setSearchTerm);
+  const setDebouncedSearch = useSearchStore(state => state.setDebouncedSearch);
+  const clearSearch = useSearchStore(state => state.clearSearch);
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -20,15 +23,10 @@ export function Search() {
     }, 500);
 
     return () => clearTimeout(timeoutId);
-  }, [searchTerm]);
+  }, [searchTerm, setDebouncedSearch]);
 
   const handleSearchChange = event => {
     setSearchTerm(event.target.value);
-  };
-
-  const handleClearSearch = () => {
-    setSearchTerm('');
-    setDebouncedSearch('');
   };
 
   return (
@@ -43,7 +41,7 @@ export function Search() {
             onChange={handleSearchChange}
           />
           <ClearButton
-            onClick={handleClearSearch}
+            onClick={clearSearch}
             show={searchTerm.length > 0}
             aria-label="Clear search"
           >
@@ -52,7 +50,7 @@ export function Search() {
         </SearchContainer>
       </Header>
       <MainContent>
-        <Movies searchTerm={debouncedSearch} />
+        <Movies />
       </MainContent>
     </PageContainer>
   );
