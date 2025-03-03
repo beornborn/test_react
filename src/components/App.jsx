@@ -1,6 +1,6 @@
 import React from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { Search } from '@/pages/Search/Search';
 import { Favorites } from '@/pages/Favorites/Favorites';
@@ -16,7 +16,7 @@ export function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={theme}>
-        <BrowserRouter basename="/test_react">
+        <HashRouter>
           <GlobalStyle />
           <AppContainer>
             <Navigation />
@@ -28,7 +28,7 @@ export function App() {
             </MainWrapper>
             <Footer />
           </AppContainer>
-        </BrowserRouter>
+        </HashRouter>
       </ThemeProvider>
     </QueryClientProvider>
   );
