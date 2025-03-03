@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@/tests/test-utils';
+import { render, mockMovies } from '@/tests/test-utils';
 import { screen } from '@testing-library/react';
 import { Favorites } from './Favorites';
 import { useFavoritesStore } from '@/store/favorites';
@@ -10,26 +10,9 @@ jest.mock('@/store/favorites', () => ({
 }));
 
 describe('Favorites Page', () => {
-  const mockMovies = [
-    {
-      imdbID: '1',
-      Title: 'Test Movie 1',
-      Year: '2021',
-      Poster: 'https://example.com/poster1.jpg',
-    },
-    {
-      imdbID: '2',
-      Title: 'Test Movie 2',
-      Year: '2022',
-      Poster: 'https://example.com/poster2.jpg',
-    },
-  ];
-
   beforeEach(() => {
-    // Reset all mocks before each test
     jest.clearAllMocks();
 
-    // Mock the store state
     useFavoritesStore.mockImplementation(selector => {
       const state = {
         favorites: mockMovies,
@@ -38,17 +21,14 @@ describe('Favorites Page', () => {
         isFavorite: jest.fn(),
       };
 
-      // If no selector is provided, return the entire state
       if (!selector) {
         return state;
       }
 
-      // If selector is a function, call it with the state
       if (typeof selector === 'function') {
         return selector(state);
       }
 
-      // If selector is a string, return the specific property
       return state[selector];
     });
   });
@@ -56,10 +36,7 @@ describe('Favorites Page', () => {
   it('renders favorite movies successfully', () => {
     render(<Favorites />);
 
-    // Check if the page title is rendered
     expect(screen.getByText('My Favorite Movies')).toBeInTheDocument();
-
-    // Check if all favorite movies are rendered
     mockMovies.forEach(movie => {
       expect(screen.getByText(movie.Title)).toBeInTheDocument();
       expect(screen.getByText(movie.Year)).toBeInTheDocument();
