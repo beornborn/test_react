@@ -25,6 +25,19 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1rem;
   }
 
+  @media screen and (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
     color: ${({ theme }) => theme.colors.text.primary};
