@@ -13,5 +13,26 @@ export const Title = styled.h1`
 `;
 
 export const MainContent = styled.main`
-  min-height: 200px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const FavoritesGrid = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+
+  > * {
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+  }
+`;
+
+export const EmptyMessage = styled.p`
+  color: ${({ theme }) => theme.colors.text.secondary};
+  text-align: center;
+  padding: 2rem;
 `;
