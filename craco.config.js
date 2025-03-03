@@ -16,7 +16,7 @@ module.exports = {
       },
       moduleDirectories: ['src', 'node_modules'], // Prioritize 'src' over 'node_modules'
       testEnvironment: 'jsdom',
-      setupFilesAfterEnv: ['<rootDir>/src/setupTests.js'],
+      setupFilesAfterEnv: ['<rootDir>/src/tests/setupTests.js'],
     },
   },
 };
