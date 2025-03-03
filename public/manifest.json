@@ -1,6 +1,7 @@
 {
   "short_name": "Movie Explorer",
   "name": "Movie Explorer - Search & Save Your Favorites",
+  "description": "Search and save your favorite movies. Browse through a vast collection of films and create your personal favorites list.",
   "icons": [
     {
       "src": "icons/favicon.ico",
@@ -39,8 +40,37 @@
   "start_url": ".",
   "scope": "/test_react/",
   "display": "standalone",
+  "orientation": "any",
   "theme_color": "#3b82f6",
   "background_color": "#ffffff",
   "categories": ["entertainment", "movies"],
-  "description": "Search and save your favorite movies. Browse through a vast collection of films and create your personal favorites list."
+  "dir": "ltr",
+  "lang": "en",
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Search Movies",
+      "url": "/test_react/",
+      "description": "Search for movies"
+    },
+    {
+      "name": "My Favorites",
+      "url": "/test_react/favorites",
+      "description": "View your favorite movies"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/search.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "label": "Search for movies"
+    },
+    {
+      "src": "screenshots/favorites.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "label": "View your favorite movies"
+    }
+  ]
 }

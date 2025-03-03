@@ -4,7 +4,16 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/icons/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#3b82f6" />
+    <meta
+      name="theme-color"
+      content="#3b82f6"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#1e40af"
+      media="(prefers-color-scheme: dark)"
+    />
     <meta
       name="description"
       content="Movie Explorer - Search and save your favorite movies. Browse through a vast collection of films and create your personal favorites list."
@@ -13,6 +22,45 @@
       name="keywords"
       content="movies, search, favorites, films, cinema, watchlist"
     />
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Movie Explorer - Search & Save Your Favorites"
+    />
+    <meta
+      property="og:description"
+      content="Search and save your favorite movies. Browse through a vast collection of films and create your personal favorites list."
+    />
+    <meta
+      property="og:image"
+      content="%PUBLIC_URL%/icons/android-chrome-512x512.png"
+    />
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Movie Explorer - Search & Save Your Favorites"
+    />
+    <meta
+      name="twitter:description"
+      content="Search and save your favorite movies. Browse through a vast collection of films and create your personal favorites list."
+    />
+    <meta
+      name="twitter:image"
+      content="%PUBLIC_URL%/icons/android-chrome-512x512.png"
+    />
+    <!-- Apple Specific Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Movie Explorer" />
+    <!-- Microsoft Specific Meta Tags -->
+    <meta name="msapplication-TileColor" content="#3b82f6" />
+    <meta
+      name="msapplication-config"
+      content="%PUBLIC_URL%/browserconfig.xml"
+    />
+    <!-- Icons -->
     <link
       rel="apple-touch-icon"
       href="%PUBLIC_URL%/icons/apple-touch-icon.png"
@@ -33,7 +81,15 @@
     <title>Movie Explorer - Search & Save Your Favorites</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <noscript>
+      <div role="alert">
+        <h1>JavaScript Required</h1>
+        <p>
+          We're sorry, but Movie Explorer requires JavaScript to function.
+          Please enable JavaScript to continue using this application.
+        </p>
+      </div>
+    </noscript>
+    <div id="root" role="main"></div>
   </body>
 </html>
