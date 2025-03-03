@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const Card = styled.article`
+const shouldNotForward = prop => prop !== 'isFavorite';
+
+export const Card = styled.article.withConfig({
+  shouldForwardProp: shouldNotForward,
+})`
   position: relative;
   display: flex;
   gap: 1rem;
@@ -61,7 +65,9 @@ export const Year = styled.time`
   font-size: 0.875rem;
 `;
 
-export const LikeButton = styled.button`
+export const LikeButton = styled.button.withConfig({
+  shouldForwardProp: shouldNotForward,
+})`
   position: absolute;
   display: block;
   top: 0.5rem;
