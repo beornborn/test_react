@@ -13,21 +13,25 @@ export function Favorites() {
   const favorites = useFavoritesStore(state => state.favorites);
 
   return (
-    <PageContainer role="main" aria-label="Favorite Movies">
-      <Title id="favorites-title">My Favorite Movies</Title>
+    <PageContainer>
+      <header>
+        <Title id="favorites-title">My Favorite Movies</Title>
+      </header>
       <MainContent>
         {favorites.length === 0 ? (
-          <EmptyMessage role="status" aria-live="polite">
-            No favorite movies yet
+          <EmptyMessage role="status" aria-live="polite" aria-atomic="true">
+            You haven't added any movies to your favorites yet. Search for
+            movies to add them to your favorites.
           </EmptyMessage>
         ) : (
-          <FavoritesGrid
-            role="grid"
-            aria-labelledby="favorites-title"
-            aria-label={`${favorites.length} favorite movies`}
-          >
+          <FavoritesGrid role="list" aria-labelledby="favorites-title">
             {favorites.map(movie => (
-              <FavoriteCard key={movie.imdbID} movie={movie} role="gridcell" />
+              <div key={movie.imdbID} role="listitem">
+                <FavoriteCard
+                  movie={movie}
+                  aria-label={`${movie.Title} (${movie.Year})`}
+                />
+              </div>
             ))}
           </FavoritesGrid>
         )}
