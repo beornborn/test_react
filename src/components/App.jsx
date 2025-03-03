@@ -5,7 +5,8 @@ import { ThemeProvider } from 'styled-components';
 import { Search } from '../pages/Search/Search';
 import { Favorites } from '../pages/Favorites/Favorites';
 import { Navigation } from './Navigation/Navigation';
-import { AppContainer } from './App.style';
+import { Footer } from './Footer/Footer';
+import { AppContainer, MainWrapper } from './App.style';
 import { GlobalStyle } from '../styles/global.style';
 import { theme } from '../styles/theme';
 
@@ -17,17 +18,15 @@ export function App() {
       <ThemeProvider theme={theme}>
         <BrowserRouter basename="/test_react">
           <GlobalStyle />
-          <AppContainer
-            role="application"
-            aria-label="Movie Favorites Application"
-          >
-            <Navigation aria-label="Main Navigation" />
-            <main role="main" aria-label="Main Content">
+          <AppContainer>
+            <Navigation />
+            <MainWrapper>
               <Routes>
                 <Route path="/" element={<Search />} />
                 <Route path="/favorites" element={<Favorites />} />
               </Routes>
-            </main>
+            </MainWrapper>
+            <Footer />
           </AppContainer>
         </BrowserRouter>
       </ThemeProvider>

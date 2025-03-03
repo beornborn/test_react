@@ -2,6 +2,18 @@ import styled from 'styled-components';
 
 export const AppContainer = styled.div`
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const MainWrapper = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
 `;
 
 export const Header = styled.header`
