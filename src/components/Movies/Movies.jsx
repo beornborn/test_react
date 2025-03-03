@@ -1,6 +1,6 @@
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
-import { MovieCard } from '../MovieCard';
+import { MovieCard } from '../MovieCard/MovieCard';
 import {
   MoviesContainer,
   MoviesGrid,

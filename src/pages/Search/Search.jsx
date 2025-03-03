@@ -8,7 +8,7 @@ import {
   ClearButton,
   MainContent,
 } from './Search.style';
-import { Movies } from '../../components/Movies';
+import { Movies } from '../../components/Movies/Movies';
 
 export function Search() {
   const [searchTerm, setSearchTerm] = useState('');

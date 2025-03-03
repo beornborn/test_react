@@ -1,6 +1,6 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { useQuery } from '@tanstack/react-query';
-import { omdbApi } from '../api';
+import * as omdbApi from '../api/omdb/movies';
 
 export const useMovieSearch = searchTerm => {
   return useInfiniteQuery({
