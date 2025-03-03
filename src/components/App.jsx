@@ -2,7 +2,8 @@ import React from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import { Home } from '../pages/Home';
+import { Search } from '../pages/Search/Search';
+import { Favorites } from '../pages/Favorites/Favorites';
 import { Navigation } from './Navigation/Navigation';
 import { AppContainer } from './App.style';
 import { GlobalStyle } from '../styles/global.style';
@@ -19,8 +20,8 @@ export function App() {
           <AppContainer>
             <Navigation />
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/favorites" element={<Home showOnlyFavorites />} />
+              <Route path="/" element={<Search />} />
+              <Route path="/favorites" element={<Favorites />} />
             </Routes>
           </AppContainer>
         </BrowserRouter>
