@@ -15,7 +15,7 @@ export function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={theme}>
-        <BrowserRouter>
+        <BrowserRouter basename="/test_react">
           <GlobalStyle />
           <AppContainer>
             <Navigation />
