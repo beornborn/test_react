@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import {
   PageContainer,
   Header,
@@ -14,6 +14,7 @@ import { useSearchStore } from '../../store/search';
 export function Search() {
   const { searchTerm, setSearchTerm, setDebouncedSearch, clearSearch } =
     useSearchStore();
+  const searchInputRef = useRef(null);
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -22,6 +23,10 @@ export function Search() {
 
     return () => clearTimeout(timeoutId);
   }, [searchTerm, setDebouncedSearch]);
+
+  useEffect(() => {
+    searchInputRef.current?.focus();
+  }, []);
 
   const handleSearchChange = event => {
     setSearchTerm(event.target.value);
@@ -33,6 +38,7 @@ export function Search() {
         <Title>Movie Search</Title>
         <SearchContainer>
           <SearchInput
+            ref={searchInputRef}
             type="text"
             placeholder="Search for movies..."
             value={searchTerm}
