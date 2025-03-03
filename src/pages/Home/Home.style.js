@@ -61,7 +61,7 @@ export const ClearButton = styled.button`
   line-height: 1;
   color: ${({ theme }) => theme.colors.text.secondary};
   transition: color 0.2s ease;
-  display: ${({ visible }) => (visible ? 'block' : 'none')};
+  display: ${({ show }) => (show ? 'block' : 'none')};
 
   &:hover {
     color: ${({ theme }) => theme.colors.primary};
