@@ -52,7 +52,7 @@ export const ClearButton = styled.button`
   color: ${({ theme }) => theme.colors.text.secondary};
   cursor: pointer;
   padding: 0.25rem;
-  display: ${({ show }) => (show ? 'block' : 'none')};
+  display: block;
 
   &:hover {
     color: ${({ theme }) => theme.colors.text.primary};

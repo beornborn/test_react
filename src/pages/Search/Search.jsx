@@ -49,13 +49,11 @@ export function Search() {
           <span id="search-description" className="sr-only">
             Type to search for movies. Results will update as you type.
           </span>
-          <ClearButton
-            onClick={clearSearch}
-            show={searchTerm.length > 0}
-            aria-label="Clear search"
-          >
-            ×
-          </ClearButton>
+          {searchTerm.length > 0 && (
+            <ClearButton onClick={clearSearch} aria-label="Clear search">
+              ×
+            </ClearButton>
+          )}
         </SearchContainer>
       </Header>
       <MainContent role="region" aria-label="Search Results">
