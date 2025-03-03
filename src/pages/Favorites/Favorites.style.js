@@ -9,6 +9,7 @@ export const PageContainer = styled.div`
 export const Title = styled.h1`
   margin: 0 0 2rem;
   color: ${({ theme }) => theme.colors.text.primary};
+  text-align: center;
 `;
 
 export const MainContent = styled.main`

@@ -8,16 +8,21 @@ export const PageContainer = styled.div`
 
 export const Header = styled.header`
   margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const Title = styled.h1`
   margin: 0 0 1rem;
   color: ${({ theme }) => theme.colors.text.primary};
+  text-align: center;
 `;
 
 export const SearchContainer = styled.div`
   position: relative;
   max-width: 600px;
+  width: 100%;
 `;
 
 export const SearchInput = styled.input`

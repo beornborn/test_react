@@ -11,6 +11,7 @@ export const NavList = styled.ul`
   padding: 0;
   list-style: none;
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+  justify-content: center;
 `;
 
 export const NavItem = styled.li`
