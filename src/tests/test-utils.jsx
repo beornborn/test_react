@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render as rtlRender } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { theme } from '@/styles/theme';
@@ -12,29 +12,27 @@ const queryClient = new QueryClient({
   },
 });
 
-const AllTheProviders = ({ children }) => {
-  return (
-    <QueryClientProvider client={queryClient}>
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
-    </QueryClientProvider>
-  );
-};
+const AllTheProviders = ({ children }) => (
+  <QueryClientProvider client={queryClient}>
+    <ThemeProvider theme={theme}>{children}</ThemeProvider>
+  </QueryClientProvider>
+);
 
-const customRender = (ui, options) =>
-  render(ui, { wrapper: AllTheProviders, ...options });
+export function renderWithProviders(ui, options = {}) {
+  return rtlRender(ui, { wrapper: AllTheProviders, ...options });
+}
 
-// override render method
-export { customRender as render };
+export const render = renderWithProviders;
 
 export const mockMovies = [
   {
-    imdbID: '1',
+    imdbID: 'tt1234567',
     Title: 'Test Movie 1',
     Year: '2021',
     Poster: 'https://example.com/poster1.jpg',
   },
   {
-    imdbID: '2',
+    imdbID: 'tt7654321',
     Title: 'Test Movie 2',
     Year: '2022',
     Poster: 'https://example.com/poster2.jpg',

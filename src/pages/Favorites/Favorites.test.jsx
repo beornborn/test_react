@@ -4,7 +4,6 @@ import { screen, fireEvent } from '@testing-library/react';
 import { Favorites } from './Favorites';
 import { useFavoritesStore } from '@/store/favorites';
 
-// Mock the Zustand store
 jest.mock('@/store/favorites', () => ({
   useFavoritesStore: jest.fn(),
 }));
