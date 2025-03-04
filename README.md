@@ -1,5 +1,11 @@
 # Coding Challenge: Movie Search & Favorites App 🎬
 
+## Screenshots
+
+| Search Page                                                                                                                                        | Favorites Page                                                                                                                           |
+| -------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| ![Movie search interface showing search results in a grid layout](https://github.com/user-attachments/assets/79636491-41b6-4b83-b614-dcdfa8bafc4d) | ![Favorites page showing saved movies in a grid layout](https://github.com/user-attachments/assets/f3e85cea-6e6d-44cf-ad4e-016b76771ca9) |
+
 ## Objective
 
 Build a small web application where users can **search for movies** and **manage a favorites list**.
