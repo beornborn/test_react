@@ -2,6 +2,24 @@
 
 [🚀 Try the live demo](https://beornborn.github.io/test_react/)
 
+## Run locally
+
+```bash
+git clone https://github.com/beornborn/test_react.git
+cd test_react
+yarn install
+echo "REACT_APP_OMDB_API_KEY=your_api_key_here" > .env
+yarn start
+```
+
+The app will be available at `http://localhost:3000`
+
+To test
+
+```bash
+yarn test
+```
+
 ## Screenshots
 
 | Search Page                                                                                                                                        | Favorites Page                                                                                                                           |
