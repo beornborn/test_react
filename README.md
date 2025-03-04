@@ -1,5 +1,7 @@
 # Coding Challenge: Movie Search & Favorites App 🎬
 
+[🚀 Try the live demo](https://beornborn.github.io/test_react/)
+
 ## Screenshots
 
 | Search Page                                                                                                                                        | Favorites Page                                                                                                                           |
