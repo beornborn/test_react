@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { MovieCard } from '@/components/MovieCard/MovieCard';
 import {
@@ -24,11 +24,17 @@ export function Movies() {
     fetchNextPage,
   } = useMovieSearch(debouncedSearch);
 
-  React.useEffect(() => {
-    if (inView && hasNextPage) {
+  const handleLoadMore = useCallback(() => {
+    if (hasNextPage) {
       fetchNextPage();
     }
-  }, [inView, hasNextPage, fetchNextPage]);
+  }, [hasNextPage, fetchNextPage]);
+
+  React.useEffect(() => {
+    if (inView && hasNextPage) {
+      handleLoadMore();
+    }
+  }, [inView, hasNextPage, handleLoadMore]);
 
   if (isLoading) {
     return (
@@ -54,14 +60,9 @@ export function Movies() {
     );
   }
 
-  const totalMovies = data.pages.reduce(
-    (count, page) => count + page.movies.length,
-    0
-  );
-
   return (
     <MoviesContainer role="region" aria-label="Search Results">
-      <MoviesList role="list" aria-label={`Found ${totalMovies} movies`}>
+      <MoviesList role="list" aria-label="List of movies">
         {data.pages.map(page =>
           page.movies.map(movie => (
             <MovieListItem key={movie.imdbID} role="listitem">
