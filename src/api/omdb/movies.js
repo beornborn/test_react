@@ -22,21 +22,3 @@ export const searchMovies = async (searchTerm, page = 1) => {
     totalResults: parseInt(response.data.totalResults) || 0,
   };
 };
-
-export const getMovieDetails = async imdbId => {
-  if (!imdbId) return null;
-
-  const response = await omdbClient.get('/', {
-    params: {
-      apikey: OMDB_CONFIG.API_KEY,
-      i: imdbId,
-      plot: 'full',
-    },
-  });
-
-  if (response.data.Error) {
-    throw new Error(response.data.Error);
-  }
-
-  return response.data;
-};

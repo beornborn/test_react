@@ -14,12 +14,3 @@ export const useMovieSearch = searchTerm => {
     staleTime: 5 * 60 * 1000, // Consider data fresh for 5 minutes
   });
 };
-
-export const useMovieDetails = imdbId => {
-  return useQuery({
-    queryKey: ['omdb', 'movie', imdbId],
-    queryFn: () => omdbApi.getMovieDetails(imdbId),
-    enabled: !!imdbId,
-    staleTime: 30 * 60 * 1000, // Consider data fresh for 30 minutes
-  });
-};
