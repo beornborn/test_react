@@ -12,17 +12,8 @@ import { Movies } from '@/components/Movies/Movies';
 import { useSearchStore } from '@/store/search';
 
 export function Search() {
-  const { searchTerm, setSearchTerm, setDebouncedSearch, clearSearch } =
-    useSearchStore();
+  const { searchTerm, setSearchTerm, clearSearch } = useSearchStore();
   const searchInputRef = useRef(null);
-
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setDebouncedSearch(searchTerm);
-    }, 500);
-
-    return () => clearTimeout(timeoutId);
-  }, [searchTerm, setDebouncedSearch]);
 
   useEffect(() => {
     searchInputRef.current?.focus();
